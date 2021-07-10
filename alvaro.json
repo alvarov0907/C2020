@@ -16,13 +16,13 @@
     },
     {
       "mark": {"type": "rule", "color": "#000", "opacity": 0.35},
-      "data": {"url": "data/flights-airport.csv"},
+      "data": {"url": "https://vega.github.io/vega/vega-datasets/data/flights-airport.csv"},
       "transform": [
         {"filter": {"param": "org", "empty": false}},
         {
           "lookup": "origin",
           "from": {
-            "data": {"url": "data/airports.csv"},
+            "data": {"url": "https://vega.github.io/vega/vega-datasets/data/airports.csv"},
             "key": "iata",
             "fields": ["latitude", "longitude"]
           }
@@ -30,7 +30,7 @@
         {
           "lookup": "destination",
           "from": {
-            "data": {"url": "data/airports.csv"},
+            "data": {"url": "https://vega.github.io/vega/vega-datasets/data/flights-airport.cs/airports.csv"},
             "key": "iata",
             "fields": ["latitude", "longitude"]
           },
@@ -46,7 +46,7 @@
     },
     {
       "mark": {"type": "circle"},
-      "data": {"url": "data/flights-airport.csv"},
+      "data": {"url": "https://vega.github.io/vega/vega-datasets/data/flights-airport.csv"},
       "transform": [
         {"aggregate": [{"op": "count", "as": "routes"}], "groupby": ["origin"]},
         {
