@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html>
-<!-- The second value will be selected initially -->
-<select name="select">
-  <option value=1850>1850</option>
-  <option value=1860>1860</option>
-  <option value=1870>1870</option>
-  <option value=2000 selected>2000</option>
-</select> 
-  
+
   <head>
     <title>Embedding Vega-Lite</title>
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
@@ -15,7 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
   </head>
   <body>
-
+    <div> <h2>Espectativa de vida por década en USA</h2></div>
+  <br> 	
+	<br>
     <div id="vis"></div>
 
     <script>
@@ -26,9 +21,17 @@
     "url": "https://vega.github.io/vega-lite/examples/data/population.json"
   },
   "transform": [
-    {"filter": "datum.year == 2000"},
+	{"filter": "datum.year == Year_Year"},
     {"calculate": "datum.sex == 2 ? 'Female' : 'Male'", "as": "gender"}
   ],
+    "params": [{
+    "name": "Year",
+    "select": {"type": "point", "fields": ["Year"]},
+	"value": {"Year":2000},
+    "bind": {
+      "Year": {"input": "range", "min": 1850,"max": 2000,"step": 10}
+    }
+  }],
   "width": {"step": 25},
   "mark": "bar",
   "encoding": {
@@ -45,7 +48,11 @@
       "scale": {"range": ["#675193", "#ca8861"]}
     },
     "opacity": {"value": 0.7}
-  }
+  },
+      "size": {
+      "condition": {"param": "Year_Year", "value": 2000},
+      "value": 2000
+    }
 };
       
       vegaEmbed('div#vis', vlspec);
@@ -53,3 +60,4 @@
   </body>
 </html>
 </body>
+
