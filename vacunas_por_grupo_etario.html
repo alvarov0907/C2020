@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Embedding Vega-Lite</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <br>
+    <div class="col-md-12">  
+        <a href="https://alvarov0907.github.io/grupo4/index.html#work">
+         <button type="button" class="btn btn-info pull-right">Volver</button>
+        </a>
+    </div>  
+    <br>
+    <div> <h2><center>Aplicación de vacunas por grupo etario</center></h2></div>
+    <br> 	
+	<br>
+    <div id="vis"></div>
+
+    <script>
+      var vlspec = 
+	 {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple grid of bar charts to compare performance data.",
+  "data": {
+    "values": [
+{"rango_edad":"18-29","vacuna":"AstraZeneca","orden_dosis":"1","COUNT":1366014},
+{"rango_edad":"18-29","vacuna":"AstraZeneca","orden_dosis":"2","COUNT":72805},
+{"rango_edad":"18-29","vacuna":"COVISHIELD","orden_dosis":"1","COUNT":22259},
+{"rango_edad":"18-29","vacuna":"COVISHIELD","orden_dosis":"2","COUNT":369},
+{"rango_edad":"18-29","vacuna":"Sinopharm","orden_dosis":"1","COUNT":2277152},
+{"rango_edad":"18-29","vacuna":"Sinopharm","orden_dosis":"2","COUNT":156420},
+{"rango_edad":"18-29","vacuna":"Sputnik","orden_dosis":"1","COUNT":931854},
+{"rango_edad":"18-29","vacuna":"Sputnik","orden_dosis":"2","COUNT":101491},
+{"rango_edad":"30-39","vacuna":"AstraZeneca","orden_dosis":"1","COUNT":1863191},
+{"rango_edad":"30-39","vacuna":"AstraZeneca","orden_dosis":"2","COUNT":137708},
+{"rango_edad":"30-39","vacuna":"COVISHIELD","orden_dosis":"1","COUNT":46293},
+{"rango_edad":"30-39","vacuna":"COVISHIELD","orden_dosis":"2","COUNT":852},
+{"rango_edad":"30-39","vacuna":"Sinopharm","orden_dosis":"1","COUNT":1764926},
+{"rango_edad":"30-39","vacuna":"Sinopharm","orden_dosis":"2","COUNT":428481},
+{"rango_edad":"30-39","vacuna":"Sputnik","orden_dosis":"1","COUNT":1187280},
+{"rango_edad":"30-39","vacuna":"Sputnik","orden_dosis":"2","COUNT":217829},
+{"rango_edad":"40-49","vacuna":"AstraZeneca","orden_dosis":"1","COUNT":2271472},
+{"rango_edad":"40-49","vacuna":"AstraZeneca","orden_dosis":"2","COUNT":236236},
+{"rango_edad":"40-49","vacuna":"COVISHIELD","orden_dosis":"1","COUNT":54623},
+{"rango_edad":"40-49","vacuna":"COVISHIELD","orden_dosis":"2","COUNT":787},
+{"rango_edad":"40-49","vacuna":"Sinopharm","orden_dosis":"1","COUNT":1193946},
+{"rango_edad":"40-49","vacuna":"Sinopharm","orden_dosis":"2","COUNT":547298},
+{"rango_edad":"40-49","vacuna":"Sputnik","orden_dosis":"1","COUNT":1345474},
+{"rango_edad":"40-49","vacuna":"Sputnik","orden_dosis":"2","COUNT":226515},
+{"rango_edad":"50-59","vacuna":"AstraZeneca","orden_dosis":"1","COUNT":1699948},
+{"rango_edad":"50-59","vacuna":"AstraZeneca","orden_dosis":"2","COUNT":297968},
+{"rango_edad":"50-59","vacuna":"COVISHIELD","orden_dosis":"1","COUNT":50555},
+{"rango_edad":"50-59","vacuna":"COVISHIELD","orden_dosis":"2","COUNT":595},
+{"rango_edad":"50-59","vacuna":"Sinopharm","orden_dosis":"1","COUNT":562271},
+{"rango_edad":"50-59","vacuna":"Sinopharm","orden_dosis":"2","COUNT":358073},
+{"rango_edad":"50-59","vacuna":"Sputnik","orden_dosis":"1","COUNT":1549975},
+{"rango_edad":"50-59","vacuna":"Sputnik","orden_dosis":"2","COUNT":183457},
+{"rango_edad":"60-69","vacuna":"AstraZeneca","orden_dosis":"1","COUNT":761771},
+{"rango_edad":"60-69","vacuna":"AstraZeneca","orden_dosis":"2","COUNT":632880},
+{"rango_edad":"60-69","vacuna":"COVISHIELD","orden_dosis":"1","COUNT":101186},
+{"rango_edad":"60-69","vacuna":"COVISHIELD","orden_dosis":"2","COUNT":926},
+{"rango_edad":"60-69","vacuna":"Sinopharm","orden_dosis":"1","COUNT":541060},
+{"rango_edad":"60-69","vacuna":"Sinopharm","orden_dosis":"2","COUNT":470407},
+{"rango_edad":"60-69","vacuna":"Sputnik","orden_dosis":"1","COUNT":1920834},
+{"rango_edad":"60-69","vacuna":"Sputnik","orden_dosis":"2","COUNT":332018},
+{"rango_edad":"70-79","vacuna":"AstraZeneca","orden_dosis":"1","COUNT":288286},
+{"rango_edad":"70-79","vacuna":"AstraZeneca","orden_dosis":"2","COUNT":381877},
+{"rango_edad":"70-79","vacuna":"COVISHIELD","orden_dosis":"1","COUNT":172193},
+{"rango_edad":"70-79","vacuna":"COVISHIELD","orden_dosis":"2","COUNT":1847},
+{"rango_edad":"70-79","vacuna":"Sinopharm","orden_dosis":"1","COUNT":351806},
+{"rango_edad":"70-79","vacuna":"Sinopharm","orden_dosis":"2","COUNT":323218},
+{"rango_edad":"70-79","vacuna":"Sputnik","orden_dosis":"1","COUNT":1370893},
+{"rango_edad":"70-79","vacuna":"Sputnik","orden_dosis":"2","COUNT":735222},
+{"rango_edad":"80-89","vacuna":"AstraZeneca","orden_dosis":"1","COUNT":67050},
+{"rango_edad":"80-89","vacuna":"AstraZeneca","orden_dosis":"2","COUNT":190999},
+{"rango_edad":"80-89","vacuna":"COVISHIELD","orden_dosis":"1","COUNT":162425},
+{"rango_edad":"80-89","vacuna":"COVISHIELD","orden_dosis":"2","COUNT":1322},
+{"rango_edad":"80-89","vacuna":"Sinopharm","orden_dosis":"1","COUNT":84119},
+{"rango_edad":"80-89","vacuna":"Sinopharm","orden_dosis":"2","COUNT":74482},
+{"rango_edad":"80-89","vacuna":"Sputnik","orden_dosis":"1","COUNT":584005},
+{"rango_edad":"80-89","vacuna":"Sputnik","orden_dosis":"2","COUNT":473184},
+{"rango_edad":">=90","vacuna":"AstraZeneca","orden_dosis":"1","COUNT":12308},
+{"rango_edad":">=90","vacuna":"AstraZeneca","orden_dosis":"2","COUNT":39515},
+{"rango_edad":">=90","vacuna":"COVISHIELD","orden_dosis":"1","COUNT":34893},
+{"rango_edad":">=90","vacuna":"COVISHIELD","orden_dosis":"2","COUNT":244},
+{"rango_edad":">=90","vacuna":"Sinopharm","orden_dosis":"1","COUNT":14605},
+{"rango_edad":">=90","vacuna":"Sinopharm","orden_dosis":"2","COUNT":12458},
+{"rango_edad":">=90","vacuna":"Sputnik","orden_dosis":"1","COUNT":98346},
+{"rango_edad":">=90","vacuna":"Sputnik","orden_dosis":"2","COUNT":78718}
+    ]
+  },
+  "width": 200,
+  "height": {"step": 18},
+  "spacing": 2,
+  "mark": "bar",
+  "encoding": {
+    "y": {"field": "orden_dosis", "type": "nominal", "axis": null},
+    "x": {
+      "field": "COUNT",
+      "type": "quantitative",
+      
+      "title": "cantidad de dosis"
+    },
+    "color": {
+      "field": "orden_dosis",
+      "type": "nominal",
+      "legend": {"orient": "bottom", "titleOrient": "left"},
+      "title": "Dosis"
+    },
+    "row": {"field": "rango_edad", "title": "Grupo Etario", "header": {"labelAngle": 0}},
+    "column": {"field": "vacuna", "title": "Vacuna"}
+  }
+}
+;
+      
+      vegaEmbed('div#vis', vlspec);
+    </script>
+	
+  <br> 	
+  <br>
+  <div class="col-md-12">  
+  <a href="https://alvarov0907.github.io/grupo4/index.html#work">
+   <button type="button" class="btn btn-info pull-right">Volver</button>
+  </a>
+  </div>  
+  <br> 	
+  <br>
+  <p>Visualización realizada en vega-Lite (<a href="https://alvarov0907.github.io/grupo4/index.html#work" target="_blank">link github</a>)</p>
+  <br>
+  </body>
+</html>
+</body>
